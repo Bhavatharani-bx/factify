@@ -1,0 +1,119 @@
+/* ===========================
+   Container width & centering
+=========================== */
+.container {
+    max-width: 950px;      /* wider container */
+    width: 95%;            /* fill most of the screen */
+    margin: 50px auto 0 auto; /* center horizontally */
+    text-align: center;
+}
+
+/* ===========================
+   Header styling
+=========================== */
+h1.main-title {
+    color: #fff;
+    font-weight: 700;
+    font-size: 2.5rem;
+}
+h3.sub-title {
+    color: #ffd700;
+    font-style: italic;
+    margin-bottom: 30px;
+}
+
+/* ===========================
+   Body background gradient
+=========================== */
+body {
+    font-family: 'Arial', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(-45deg, #1a2a6c, #b21f1f, #fdbb2d, #00c6ff);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+}
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* ===========================
+   Input textarea / bot
+=========================== */
+textarea.form-control {
+    min-height: 350px;
+    max-height: 700px;
+    width: 100%;           /* fill container width */
+    max-width: 900px;      /* optional max width */
+    resize: vertical;
+    border: 2px solid #00c6ff;
+    border-radius: 12px;
+    box-shadow: 0 0 12px rgba(0,198,255,0.4);
+    padding: 12px;
+    font-size: 1rem;
+}
+
+/* ===========================
+   Output box / chat-bot
+=========================== */
+.card-bot {
+    border: 2px solid #00c6ff;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 20px;
+    background-color: #f8f9fa;
+    text-align: left;
+    word-wrap: break-word;
+    width: 100%;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;  /* center the box */
+    font-size: 1rem;
+}
+
+/* ===========================
+   Result container
+=========================== */
+.result-container {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 12px;
+    box-shadow: 0 0 12px rgba(0,0,0,0.2);
+    text-align: center;
+}
+
+/* ===========================
+   Prediction badges
+=========================== */
+.badge-real {
+    background-color: #28a745;
+    color: #fff;
+    border-radius: 20px;
+    padding: 8px 16px;
+    font-weight: bold;
+    font-size: 1rem;
+}
+.badge-fake {
+    background-color: #dc3545;
+    color: #fff;
+    border-radius: 20px;
+    padding: 8px 16px;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+/* ===========================
+   Trusted link styling
+=========================== */
+.trusted-link a {
+    color: #007bff;
+    text-decoration: underline;
+}
+.trusted-link a:hover {
+    color: #0056b3;
+}

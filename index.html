@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Factify - Fake News Detection</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+    <script>
+        function validateForm() {
+
+            var text =
+                document.getElementById("newsBox").value.trim();
+
+            if (text === "") {
+                alert("First enter the news");
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1 class="main-title">Factify</h1>
+
+    <h3 class="sub-title">
+        Intelligent Fake News Detection
+    </h3>
+
+    <p class="instruction-text">
+        Enter a claim or news text in Tamil or English.
+        Factify verifies the headline using trusted news sources.
+    </p>
+
+
+    <form method="POST"
+          onsubmit="return validateForm()">
+
+        <textarea
+            id="newsBox"
+            class="form-control"
+            name="news"
+            placeholder="Enter the news here...">{{ request.form.get('news', '') }}</textarea>
+
+        <br><br>
+
+        <button type="submit">
+            Analyze
+        </button>
+
+    </form>
+
+
+    {% if prediction %}
+
+    <div class="result-container">
+
+        <h4>Verification Result</h4>
+
+        {% if prediction == "Real" %}
+
+            <span class="badge-real">
+                REAL
+            </span>
+
+            {% if confidence is not none %}
+            <p>
+                <strong>Confidence:</strong>
+                {{ confidence }}%
+            </p>
+            {% endif %}
+
+            {% if source %}
+            <p>
+                <strong>Source:</strong>
+                {{ source }}
+            </p>
+            {% endif %}
+
+            {% if article_url %}
+            <p>
+                <strong>Verified Article:</strong>
+                <a href="{{ article_url }}"
+                   target="_blank">
+                    View Article
+                </a>
+            </p>
+            {% endif %}
+
+        {% else %}
+
+            <span class="badge-fake">
+                FAKE
+            </span>
+
+        {% endif %}
+
+    </div>
+
+    {% endif %}
+
+</div>
+
+</body>
+</html>
